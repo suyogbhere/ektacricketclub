@@ -1,0 +1,14 @@
+.dropdown:hover .dropdown-menu{
+    display: block;
+
+}
+
+.nav-item:hover{
+    background-color: lightyellow;
+}
+
+/* 
+.dropdown-item{
+    transition: .5s;
+
+} */

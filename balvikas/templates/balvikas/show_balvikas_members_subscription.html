@@ -1,0 +1,91 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+{% load bootstrap %}
+
+{% block content %}
+<div class="container-fluid">
+    {% if messages %}
+            {% for message in messages %}
+                <p {% if message %} class="alert alert-{{message.tags}} mb-5 alert-dismissible fade show col-sm-8 mx-auto {% endif %} role="alert">{{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
+            {% endfor %}
+    {% endif %}
+    <div class="row">
+        <div class="col-sm-4 border-end border-success">
+            <div class="row ">
+                <h2 class="text-center col-sm-8">बाळ विकास मंडळ सभासद</h2>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'abvm' %}" class='btn btn-outline-success py-auto my-auto mx-auto col-sm-3 me-3 mb-1'>नोंद करा</a>
+                {% endif %}
+            </div>
+            <table class="table table-striped table-hover">
+                    <tr>
+                        <th class="text-center">अ. क्र</th>
+                        <th class="text-center">सभासदाचे नाव</th>
+                    </tr>
+                {% for fm2 in form2 %}
+                        <tr class="text-center">
+                            <td>{{forloop.counter}}</td>        <!--{{fm2.id}}--> 
+                            <td>{{fm2.Name}}</td>
+                        </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <h2 class="text-center col-sm-9">बाळ विकास मंडळ सभासद आणि वर्गणी</h2>
+                {% if request.user.is_superuser %}
+                <a href="{% url 'abvms' %}" class='btn btn-outline-success py-auto my-auto col-sm-2 mx-auto d-inline'>जमा करा</a>
+                {% endif %}
+            </div>
+            <!-- <div class="row"> -->
+                        <form action="" method="POST" class="mb-2">
+                            {% csrf_token %}
+                                <div class="row  fw-bold">
+                                    <div class="col-sm-3">{{myfilter.form.Name|bootstrap}}</div>
+                                    <div class="col-sm-3">{{myfilter.form.Subscription|bootstrap}}</div>
+                                    <div class="col-sm-3">{{myfilter.form.Year|bootstrap}}</div>
+                                    <button class="btn btn-outline-primary  col-sm-2 mt-4 mx-auto" type="submit">Search</button>
+                                </div>
+                        </form>
+            <!-- </div> -->
+            <table class="table table-striped table-hover">
+                <tr>
+                    <th class="text-center">अ. क्र</th>
+                    <th class="text-center">सभासदाचे नाव</th>
+                    <th class="text-center">वर्गणी  (₹)</th>
+                    <th class="text-center">तारीख</th>
+                    <th class="text-center">वर्ष</th>
+                    {% if request.user.is_superuser %}
+                    <th class="text-center">कृती</th>
+                    {% endif %}
+                </tr>
+            {% for fm1 in form1 %}
+                    <tr class="text-center">
+                        <td>{{forloop.counter}}</td>         <!-- {{fm1.id}} -->
+                        <td>{{fm1.Name}}</td>
+                        <td>{{fm1.Subscription}} ₹</td>
+                        <td>{{fm1.Date}}</td>
+                        <td>{{fm1.Year}}</td>
+                        {% if request.user.is_superuser %}
+                        <td>
+                            <form action="{% url 'ebvms' fm1.id %}" method="" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="एडीट" class="btn btn-outline-warning">
+                            </form>
+                            <form action="{% url 'dbvms' fm1.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="डीलीट" class="btn btn-outline-danger">
+                            </form>
+                        </td>
+                        {% endif %}
+                    </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+</div>
+   
+{% endblock content %}

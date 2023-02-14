@@ -1,0 +1,36 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-5 bg-white mx-auto" >
+            {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3 alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                        </button>
+                    </p>
+                {% endfor %}
+            {% endif %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3 alert-dismissible fade show"  role="alert">{{error}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                        </button>
+                    </p>
+                {% endfor %}
+            {% endif %}
+            <h1 class="text-center mt-2 fw-bold">शैक्षणिक फोटो अपलोड करा</h1>
+            <form action="" method="POST" novalidate class="shadow p-5 fw-bold" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for fm in form %}
+                        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+                {% endfor %} <br>
+                <input type="submit" class='btn btn-outline-info' value="submit">
+            </form>
+        </div>
+    </div>
+</div>
+   
+{% endblock content %}

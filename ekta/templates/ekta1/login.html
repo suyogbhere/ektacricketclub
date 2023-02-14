@@ -1,0 +1,39 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="mt-2 col-sm-5 mx-auto">
+        {% if messages %}
+            {% for message in messages %}
+                <p {% if message %} class="alert alert-{{message.tags}} mb-5 alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
+            {% endfor %}
+        {% endif %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3  alert-dismissible fade show"  role="alert">{{error}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
+            {% endfor %}
+        {% endif %}
+        <h3 class="text-center fw-bold">लॉगिन</h3>
+        <form action="" method="POST" novalidate class="shadow p-5 mt-5">
+             {% csrf_token %}
+            <label for="id_username">Username:</label> <input type="text" name="username" class="form-control" autofocus autocapitalize="none" autocomplete="username" required id="id_username"> <br> 
+            
+            <label for="id_password">Password:</label> <input type="password" name="password" class="form-control"  required id="id_password"> <br>
+            <div>
+                <input type="submit" class='btn btn-outline-primary' value="Login">
+                <small class="ms-3 text-primary fw-bold ">New to Ekta? 
+                <a href="{% url 'signup' %}" class="text-danger">Create an Account</a></small> 
+            </div>
+               
+                
+        </form>
+    </div>
+</div> <br>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mt-1">
+                <div class="row">
+                    {% for x in img %}
+                        <div class="col-sm-2">
+                        <div class="card m-1">
+                            <img src="{{x.Photo.url}}" alt="" class="card-img-top" height="200px">
+                            <div class="card-footer">
+                            <small class="text-muted">{{x.Discription}}</small>
+                            {% if request.user.is_superuser %}
+                            <form action="{% url 'dcp' x.id %}" method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="डीलीट" class="btn btn-outline-danger col-sm-12">
+                            </form>
+                            {% endif %}
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
+                  </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

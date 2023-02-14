@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ekta cricket club</title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% endblock css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- Heading -->
+    {% block header1 %}
+    {% endblock header1 %}
+
+    <!-- Navbar -->
+    {% include 'ekta1/navbar.html' %}
+    
+    <!-- carsoul -->
+    {% block carousel %}
+    {% endblock carousel %}
+
+    {% block content %}
+    {% endblock content %}
+
+    
+    
+  </div>
+
+  <!-- Page footer -->
+  <div class="container-fluid card-footer text-center text-white bg-dark p-2 ">
+    ©Powered by Ekta Cricket Club 2022
+  </div>  
+
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap_growl.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+  
+   
+</body>
+</html>

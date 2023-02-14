@@ -1,0 +1,6 @@
+style="height: 550px; width:1365px ;"
+
+https://ektacricketclub.herokuapp.com/ 
+
+
+style="background-image: url('{% static 'images/bg-1.jpg' %}'); background-repeat: no-repeat;"

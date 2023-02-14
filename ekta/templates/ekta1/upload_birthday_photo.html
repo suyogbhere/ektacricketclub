@@ -1,0 +1,56 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 bg-white border-end border-dark" >
+            {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3 alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                        </button>
+                    </p>
+                {% endfor %}
+            {% endif %}
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3 alert-dismissible fade show"  role="alert">{{error}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                        </button>
+                    </p>
+                {% endfor %}
+            {% endif %}
+            <h1 class="text-center mt-2 fw-bold">वाढदिवस फोटो अपलोड करा</h1>
+            <hr>
+            <form action="" method="POST" novalidate class="shadow p-5 fw-bold " enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for fm in form %}
+                        {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br>
+                {% endfor %} <br>
+                <input type="submit" class='btn btn-outline-info' value="submit">
+            </form>
+        </div>
+        <div class="col-sm-8">
+            <div class="row mt-4">
+                {% for img1 in img %}
+                <div class="col-sm-4  m-3 p-2 shadow">
+                   <img src="{{img1.Photo.url}}" alt="birthday_photo" class="mb-2" srcset="" height="350px"> 
+                   {% if request.user.is_superuser %}
+                        <form action="{% url 'ebp' img1.id %}" method="GET" class="d-inline" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="submit" value="एडीट" class="btn btn-outline-warning">
+                        </form>
+                        <form action="{% url 'dbp' img1.id %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" value="डीलीट" class="btn btn-outline-danger">
+                        </form>
+                        {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div> 
+    </div>
+</div>
+   
+{% endblock content %}

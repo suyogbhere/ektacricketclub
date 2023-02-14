@@ -1,0 +1,38 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+    <!-- Heading -->
+    {% block header1 %}
+    <div class="row shadow-lg">
+    <h2 class="text-center bg-info py-auto fw-bold m-0 active shadow">
+        <marquee direction="left" class="pt-2" scrollamount="15">
+            !!🙏एकता क्रिकेट संघात आपले हार्दिक स्वागत 🙏!!
+        </marquee></h2>
+    </div>
+    {% endblock header1 %}
+
+    <!-- carsoul -->
+    {% block carousel %}
+    {% include 'ekta1/carousel.html' %}
+    {% endblock carousel %}
+
+
+    {% block content %}
+        <div class="row bg-info bg-gradient">
+            <div class="col-md-6 text-center border-end border-bottom" style="height: 400px;">
+                <img src="{% static 'images/Ekta_logo.jpg' %}" class="img-fluid img-thumbnail rounded-circle mt-5" width="50%" alt="ekta logo" srcset="">
+            </div>
+            <div class="col-md-6 text-center border-bottom" style="height: 400px;">
+                <img src="{% static 'images/advertisement.jpg' %}" class="img-fluid mt-3" alt="advertisement" width="700px" height="300px" srcset="">
+            </div>
+        </div>
+    
+        <div class="row bg-primary bg-gradient">
+            {% for img1 in img %}
+            <div class="col-md text-center border-end" style="height: 400px;">
+                <img src="{{img1.Photo.url}}" alt="" class="img-fluid" srcset="" style="height: 400px;"> 
+            </div>
+            {% endfor %}
+        </div>
+    {% endblock content %}
+   

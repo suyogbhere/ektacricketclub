@@ -1,0 +1,79 @@
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+{% endblock css %}
+
+<div class="row fw-bold">
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger bg-gradient shadow-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand {{home}}" href="{% url 'home' %}" >
+          <img src="{% static 'images/Ekta_logo.jpg' %}" class="img-fluid rounded-circle" alt="ektalogo" width="50" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link m-1   {{cricket}}" href="{% url 'cricket' %}"> क्रिकेट </a>
+            </li>
+            <li class="nav-item dropdown m-1">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- ड्रॉपडाउन -->
+              </a>
+              <ul class="dropdown-menu bg-danger bg-gradient">
+                <li><a class="dropdown-item   {{EB}}" href="{% url 'eb' %}">कार्यकारिणी मंडळ</a></li>
+                <li><a class="dropdown-item   {{education}}" href="{% url 'education' %}">शैक्षणिक</a></li>
+                <li><a class="dropdown-item   {{cultural}}" href="{% url 'cultural' %}">सांस्कृतिक</a></li>
+                <li><a class="dropdown-item   {{social}}" href="{% url 'social' %}">सामाजिक</a></li>
+                
+              </ul>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link m-1   {{dashboard}}" href="{% url 'dashboard' %}">डॅशबोर्ड</a>
+            </li>
+            <li class="nav-item dropdown m-1">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- ड्रॉपडाउन 1 -->
+              </a>
+              <ul class="dropdown-menu bg-danger bg-gradient">
+                <li><a class="dropdown-item   {{SEMS}}" href="{% url 'sems' %}">एकता सभासद आणि वर्गणी</a></li>
+                <li><a class="dropdown-item   {{SBVMS}}" href="{% url 'sbvms' %}">बाळ विकास मंडळ सभासद आणि वर्गणी</a></li>
+                <li><a class="dropdown-item   {{SFS}}" href="{% url 'sfs' %}">संपर्क डीटेल्स</a></li>
+                <li><a class="dropdown-item   {{CP}}" href="{% url 'cp' %}">पासवर्ड बदला</a></li>
+              </ul>
+            </li>
+            {% if request.user.is_superuser %}
+            <li class="nav-item dropdown m-1">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                फोटो अपलोड
+              </a>
+              <ul class="dropdown-menu bg-danger bg-gradient">
+                <li><a class="dropdown-item {{UCM}}" href="{% url 'ucm' %}">क्रिकेट फोटो अपलोड</a></li>
+                <li><a class="dropdown-item {{UBP}}" href="{% url 'ubp' %}">वाढदिवस फोटो अपलोड</a></li>
+                <li><a class="dropdown-item {{UEP}}" href="{% url 'uep' %}">शैक्षणिक फोटो अपलोड</a></li>
+                <li><a class="dropdown-item {{UCP}}" href="{% url 'ucp' %}">सांस्कृतिक फोटो अपलोड</a></li>
+                <li><a class="dropdown-item {{USP}}" href="{% url 'usp' %}">सामाजिक फोटो अपलोड</a></li>
+              </ul>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link m-1  " href="{% url 'logout' %}">लॉग आऊट</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link m-1 {{signup}}  " href="{% url 'signup' %}">साइन अप</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link m-1 {{login}}  " href="{% url 'login' %}">लॉगिन</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+              <a class="nav-link m-1 {{contact}}  " href="{% url 'contact' %}">संपर्क</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>

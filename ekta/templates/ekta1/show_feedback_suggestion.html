@@ -1,0 +1,39 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+            <div class="row">
+                <h2 class="text-center">प्रतिसाद डीटेल्स</h2>
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th class="text-center">अ. क्र</th>
+                        <th class="text-center">नाव</th>
+                        <th class="text-center">ई-मेल</th>
+                        <th class="text-center">विषय</th>
+                        <th class="text-center">मेसेज</th>
+                        {% if request.user.is_superuser %}
+                        <th class="text-center">कृती</th>
+                        {% endif %}
+                    </tr>
+                {% for fm in form %}
+                        <tr class="text-center">
+                            <td>{{forloop.counter}}</td>         <!-- {{fm1.id}} -->
+                            <td>{{fm.Name}}</td>
+                            <td>{{fm.Email}}</td>
+                            <td>{{fm.Subject}}</td>
+                            <td>{{fm.Message}}</td>
+                            {% if request.user.is_superuser %}
+                            <td>
+                                <form action="{% url 'dfs' fm.id %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <input type="submit" value="डीलीट" class="btn btn-outline-danger">
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+                {% endfor %}
+                </table>
+            </div>
+
+   
+{% endblock content %}
