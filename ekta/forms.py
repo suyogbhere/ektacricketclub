@@ -1,9 +1,12 @@
 from django import forms
+from django.forms import widgets
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .models import *
 from django.utils.translation import gettext,gettext_lazy as _
 from django.contrib.auth import password_validation
+
+
 
 
 #Signup form
@@ -27,17 +30,23 @@ class MyPasswordChangeForm(PasswordChangeForm):
     new_password1=forms.CharField(label=_('नवीन पासवर्ड'),strip=False,widget=forms.PasswordInput(attrs={'class':'form-control'}),help_text=password_validation.password_validators_help_text_html())
     new_password2=forms.CharField(label=_("नवीन पासवर्ड तपासा"),strip=False,widget=forms.PasswordInput(attrs={'class':'form-control'}))
 
+#custom date widget
+class DateTimeInput(forms.DateTimeInput):
+    input_type='datetime-local'
+
 
 #Ekta member Subscription form
 class EktaMemberSubscriptionForm(forms.ModelForm):
+    # Date= forms.DateField(widget=Dateinput)
     class Meta:
         model = Ekta_Member_Subscription 
         fields = '__all__'
-        labels = {'Subscription':'वर्गणी(₹)', 'Name':'नाव', 'Year':'वर्ष'}
+        labels = {'Subscription':'वर्गणी(₹)', 'Name':'नाव', 'Year':'वर्ष','Date':'तारीख'}
         widgets={
             'Name': forms.Select(attrs={'class':'form-select'}),
             'Subscription': forms.NumberInput(attrs={'class':'form-control'}),
             'Year': forms.Select(attrs={'class':'form-select'}),
+            'Date': DateTimeInput(attrs={'class':'form-control'})
         }
 
 #Ekta Member form
@@ -127,6 +136,20 @@ class Educational_photo_form(forms.ModelForm):
         }
         labels={
             'Discription':'वर्णन', 'Photo':'फोटो'
+        }
+
+
+class Annual_Meeting_form(forms.ModelForm):
+    class Meta:
+        model = Annual_Meeting
+        fields = '__all__'
+        widgets = {
+            'Discription': forms.Textarea(attrs={'class':'form-control','cols':1,'rows':3}),
+            'Date': DateTimeInput(attrs={'class':'form-control'}),
+            'Image': forms.FileInput(attrs={'class':'form-control'}),
+        }
+        labels={
+            'Image':'फोटो', 'Date':'तारीख','Discription':'वर्णन'
         }
 
 

@@ -29,13 +29,14 @@ def Add_BalVikas_Members_subscription(request):
                 nm=fm.cleaned_data['Name']
                 sb=fm.cleaned_data['Subscription']
                 yy=fm.cleaned_data['Year']
-                data=BalVikas_Member_Subscription(Name=nm,Subscription=sb,Year=yy)
+                dd=fm.cleaned_data['Date']
+                data=BalVikas_Member_Subscription(Name=nm,Subscription=sb,Year=yy,Date=dd)
                 data.save()
                 messages.success(request,'वर्गणी जमा झाली !!!')
                 return HttpResponseRedirect("/sbvms/")
         else:
             fm=BalVikasMemberSubscriptionForm()
-        return render(request,'balvikas/add_BalVikas_members_subscription.html',{'form':fm,'ABVMS':'active'})
+        return render(request,'balvikas/add_balvikas_members_subscription.html',{'form':fm})
     else:
         return HttpResponseRedirect("/login/")
 
@@ -85,7 +86,7 @@ def BalVikas_export_to_csv(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition']='attachment; filename="BalVikas_export.csv"'
     writer = csv.writer(response)   
-    writer.writerow(['ID','Name','Subscription','Year'])
+    writer.writerow(['ID','Name','Subscription','Date','Year'])
     for bms in ems:
         writer.writerow([bms.id,bms.Name, bms.Subscription, bms.Year])
     return response

@@ -1,0 +1,28 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid ">
+        <div class="row">
+            <div class="row">
+                <h2 class="text-center d-inline col-sm-8 mx-auto">वार्षिक सभा आणि छायाचित्र</h2>
+                <a href="{% url 'aam' %}" class='btn btn-outline-success py-auto d-inline my-auto col-sm-1'>जमा करा</a>
+            </div>
+            {% for fm in form %} 
+                    <div class="col-sm-3">
+                        <div class="card m-2">
+                            <img src="{{fm.Image.url}}" alt="" srcset="" class="card-img-top" height="240px" width="500px">
+                            <div class="card-footer">
+                                <small class="text-muted">{{fm.Date}}</small> <br>
+                                <small class="text-muted">{{fm.Discription}}</small>
+                            </div>
+                        </div>
+                    </div> 
+            {% endfor %}     
+        </div>
+        
+        
+</div>
+   
+{% endblock content %}
+

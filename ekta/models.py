@@ -11,13 +11,13 @@ class EktaMember(models.Model):
 
 
 YEAR_CHOICES = []
-for y in range(1995, (datetime.datetime.now().year+1)):
+for y in range(2015, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((y,y))
 
 class Ekta_Member_Subscription(models.Model):
     Name = models.ForeignKey(EktaMember, on_delete=models.CASCADE)
     Subscription = models.IntegerField()
-    Date = models.DateTimeField(auto_now_add=True)
+    Date = models.DateTimeField()
     Year = models.IntegerField(('year'), choices=YEAR_CHOICES,default=datetime.datetime.now().year)  
 
     def __str__(self):
@@ -52,6 +52,13 @@ class Cultural_photo_upload(models.Model):
 class Educational_photo_upload(models.Model):
     Photo = models.ImageField(upload_to="Educational_photo")
     Discription = models.CharField(max_length=200, blank=True)
+
+
+class Annual_Meeting(models.Model):
+    Image = models.ImageField(upload_to="Metting_photo",null=True)
+    Date = models.DateTimeField(null=True)
+    Discription=models.CharField(max_length=250,null=True)
+    
 
 # #work in progress
 # class Position(models.Model):

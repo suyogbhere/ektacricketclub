@@ -9,13 +9,13 @@ class BalVikas_Member(models.Model):
 
 
 YEAR_CHOICES = []
-for y in range(1995, (datetime.datetime.now().year+1)):
+for y in range(2015, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((y,y))
 
 class BalVikas_Member_Subscription(models.Model):
     Name = models.ForeignKey(BalVikas_Member, on_delete=models.CASCADE)
     Subscription = models.IntegerField()
-    Date = models.DateTimeField(auto_now_add=True)
+    Date = models.DateTimeField()
     Year = models.IntegerField(('year'), choices=YEAR_CHOICES,default=datetime.datetime.now().year)  
 
     def __str__(self):

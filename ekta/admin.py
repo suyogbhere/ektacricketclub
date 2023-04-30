@@ -33,6 +33,11 @@ class Cultural_photo_uploadAdmin(admin.ModelAdmin):
 class Educational_photo_uploadAdmin(admin.ModelAdmin):
     list_display =['id', 'Discription', 'Photo']
 
+@admin.register(Annual_Meeting)
+class Annual_MeetingAdmin(admin.ModelAdmin):
+    list_display = ['id','Image','Date','Discription']
+
+
 #work in progress
 # @admin.register(Executive_board)
 # class Executive_board_Admin(admin.ModelAdmin):

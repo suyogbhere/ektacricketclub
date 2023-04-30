@@ -113,7 +113,8 @@ def Add_Ekta_Members_subscription(request):
                 nm=fm.cleaned_data['Name']
                 sb=fm.cleaned_data['Subscription']
                 yy=fm.cleaned_data['Year']
-                data=Ekta_Member_Subscription(Name=nm,Subscription=sb,Year=yy)
+                dd=fm.cleaned_data['Date']
+                data=Ekta_Member_Subscription(Name=nm,Subscription=sb,Year=yy,Date=dd)
                 data.save()
                 messages.success(request,'वर्गणी जमा झाली !!!')
                 return HttpResponseRedirect("/sems/")
@@ -364,10 +365,36 @@ def Upload_Educational_photo(request):
     else:
         return HttpResponseRedirect("/login/")
 
-
 def Executive_Board(request):
     context={'EB':'active'}
     return render(request,'ekta1/executive_board.html',context)
+
+def Add_Annual_Meeting_page(request):
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            fm = Annual_Meeting_form(request.POST,request.FILES)
+            if fm.is_valid():
+                im = fm.cleaned_data['Image']
+                dd = fm.cleaned_data['Date']
+                di = fm.cleaned_data['Discription']
+                data = Annual_Meeting(Image=im, Date=dd, Discription=di)
+                data.save()
+                messages.success(request,'meeting Detail Add Successfully!!!')
+        else:
+            fm = Annual_Meeting_form()
+        return render(request, 'ekta1/add_annual_meetings.html',{'form':fm})
+    else:
+        return HttpResponseRedirect("/login/")
+        
+
+#Show annual meeting
+def Show_Annual_Meeting_page(request):
+    if request.user.is_authenticated:
+        fm= Annual_Meeting.objects.all()
+        return render(request, 'ekta1/show_annual_meetings.html',{'SAM':'active','form':fm})
+    else:
+        return HttpResponseRedirect("/login/")
+        
 
 #download ekta Member subscription 
 def Ekta_export_to_csv(request):
@@ -383,12 +410,19 @@ def Ekta_export_to_csv(request):
 #download ekta Member subscription 
 def Ekta_export_to_csv1(request):
     ems = Ekta_Member_Subscription.objects.all()
-    myfilter = Ekta_Member_Subscription_Filter(request.POST, queryset=ems)
-    emss = myfilter.qs
+    myfilter = Ekta_Member_Subscription_Filter(request.GET, queryset=ems).qs
+    print(myfilter)
+
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition']='attachment; filename="Ekta_export.csv"'
+
     writer = csv.writer(response)   
+
     writer.writerow(['ID','Name','Subscription','Year'])
-    for ems in emss:
-        writer.writerow([ems.id,ems.Name, ems.Subscription, ems.Year])
+
+    # for i in myfilter.values_list('Name','Subscription','Year'):
+    #     writer.writerow(i)
+    for myfilters in myfilter:
+        writer.writerow([myfilters.id, myfilters.Name, myfilters.Subscription, myfilters.Year])
     return response
+

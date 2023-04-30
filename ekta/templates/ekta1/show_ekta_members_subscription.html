@@ -6,7 +6,7 @@
 <div class="container-fluid">
     {% if messages %}
             {% for message in messages %}
-                <p {% if message %} class="alert alert-{{message.tags}} mb-5 alert-dismissible fade show col-sm-8 mx-auto {% endif %} role="alert">{{message}}
+                <p {% if message %} class="alert alert-{{message.tags}} mb-5 alert-dismissible fade show col-sm-8 mx-auto"  {% endif %} role="alert" >{{message}}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
                     </button>
                 </p>
@@ -47,9 +47,9 @@
                                     <div class="col-sm-3">{{myfilter.form.Name|bootstrap}}</div>
                                     <div class="col-sm-3">{{myfilter.form.Subscription|bootstrap}}</div>
                                     <div class="col-sm-3">{{myfilter.form.Year|bootstrap}}</div>
-                                    <button class="btn btn-outline-primary  col-sm-1 py-auto mt-4 mx-auto" type="submit">Search</button>
-                                    <a href="{% url 'eetc' %}" class='btn btn-outline-success col-sm-1 mt-4 mx-auto px-auto'>Excel</a>
-                                    <a href="{% url 'eet' %}" class='btn btn-outline-success col-sm-1 mt-4 mx-auto px-auto'>Excel1</a>
+                                    <button class="btn btn-outline-primary  col-sm-2 py-auto mt-4 mx-auto" type="submit">Search</button>
+                                    <!-- <a href="{% url 'eetc' %}" class='btn btn-outline-success col-sm-1 mt-4 mx-auto px-auto'>Excel</a> -->
+                                    <!-- <a href="{% url 'eet' %}" class='btn btn-outline-success col-sm-1 mt-4 mx-auto px-auto'>Excel1</a> -->
                                 </div>
                         </form>
             <!-- </div> -->

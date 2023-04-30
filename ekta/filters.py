@@ -3,7 +3,7 @@ from .models import *
 from django import forms
 
 YEAR_CHOICES = []
-for y in range(1995, (datetime.datetime.now().year+1)):
+for y in range(2015, (datetime.datetime.now().year+1)):
     YEAR_CHOICES.append((y,y))
 
 #Model Name filter
