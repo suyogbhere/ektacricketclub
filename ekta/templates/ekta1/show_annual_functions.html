@@ -5,9 +5,9 @@
 <div class="container-fluid ">
         <div class="row">
             <div class="row">
-                <h2 class="text-center d-inline col-sm-8 mx-auto shadow">वार्षिक सभा आणि छायाचित्र</h2>
+                <h2 class="text-center d-inline col-sm-8 mx-auto">वार्षिक कार्यक्रम आणि छायाचित्र</h2>
                 {% if request.user.is_superuser %}
-                <a href="{% url 'aam' %}" class='btn btn-outline-success py-auto d-inline my-auto col-sm-1'>जमा करा</a>
+                <a href="{% url 'aaf' %}" class='btn btn-outline-success py-auto d-inline my-auto col-sm-1'>जमा करा</a>
                 {% endif %}
             </div>
             {% for fm in form %} 
@@ -19,11 +19,11 @@
                                 <small class="text-muted">{{fm.Discription}}</small>
                                 <div class="text-center">
                                     {% if request.user.is_superuser %}
-                                    <form action="{% url 'eam' fm.id %}" method="GET" class="d-inline" enctype="multipart/form-data">
+                                    <form action="{% url 'eaf' fm.id %}" method="GET" class="d-inline" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <input type="submit" value="एडीट" class="btn btn-outline-warning">
                                     </form>
-                                    <form action="{% url 'dam' fm.id %}" method="POST" class="d-inline">
+                                    <form action="{% url 'daf' fm.id %}" method="POST" class="d-inline">
                                     {% csrf_token %}
                                     <input type="submit" value="डीलीट" class="btn btn-outline-danger">
                                     </form>

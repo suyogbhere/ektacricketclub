@@ -153,6 +153,21 @@ class Annual_Meeting_form(forms.ModelForm):
         }
 
 
+class Annual_Function_form(forms.ModelForm):
+    class Meta:
+        model = Annual_Meeting
+        fields = '__all__'
+        widgets = {
+            'Discription': forms.Textarea(attrs={'class':'form-control','cols':1,'rows':3}),
+            'Date': DateTimeInput(attrs={'class':'form-control'}),
+            'Image': forms.FileInput(attrs={'class':'form-control'}),
+        }
+        labels={
+            'Image':'फोटो', 'Date':'तारीख','Discription':'वर्णन'
+        }
+
+
+
 # class Executive_board_form(forms.ModelForm):
 #     class Meta:
 #         model = Executive_board

@@ -55,10 +55,15 @@ class Educational_photo_upload(models.Model):
 
 
 class Annual_Meeting(models.Model):
-    Image = models.ImageField(upload_to="Metting_photo",null=True)
+    Image = models.ImageField(upload_to="Meeting_photo",null=True)
     Date = models.DateTimeField(null=True)
     Discription=models.CharField(max_length=250,null=True)
-    
+
+class Annual_Function(models.Model):
+    Image = models.ImageField(upload_to="Function_photo",null=True)
+    Date = models.DateTimeField(null=True)
+    Discription=models.CharField(max_length=250,null=True)
+
 
 # #work in progress
 # class Position(models.Model):

@@ -37,6 +37,9 @@ class Educational_photo_uploadAdmin(admin.ModelAdmin):
 class Annual_MeetingAdmin(admin.ModelAdmin):
     list_display = ['id','Image','Date','Discription']
 
+@admin.register(Annual_Function)
+class Annual_FunctionAdmin(admin.ModelAdmin):
+    list_display = ['id','Image','Date','Discription']
 
 #work in progress
 # @admin.register(Executive_board)

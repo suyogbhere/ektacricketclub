@@ -35,10 +35,16 @@ urlpatterns = [
     path('uep/',views.Upload_Educational_photo,name="uep"),
     path('ucp/',views.Upload_Cultural_photo,name="ucp"),
     path('usp/',views.Upload_Social_photo,name="usp"),
-    path('aam', views.Add_Annual_Meeting_page, name='aam'),
-    path('sam', views.Show_Annual_Meeting_page, name='sam'),
-    path('eetc', views.Ekta_export_to_csv, name="eetc"),
-    path('eet', views.Ekta_export_to_csv1, name="eet"),
+    path('aam/', views.Add_Annual_Meeting_page, name='aam'),
+    path('sam/', views.Show_Annual_Meeting_page, name='sam'),
+    path('eam/<int:id>/', views.Edit_Annual_Meeting_page, name='eam'),
+    path('dam/<int:id>/', views.Delete_Annual_Meeting_page, name='dam'),
+    path('aaf/', views.Add_Annual_Function_page, name='aaf'),
+    path('eaf/<int:id>/', views.Edit_Annual_Function_page, name='eaf'),
+    path('daf/<int:id>/', views.Delete_Annual_Function_page, name='daf'),
+    path('saf/', views.Show_Annual_Function_page, name='saf'),
+    path('eetc/', views.Ekta_export_to_csv, name="eetc"),
+    path('eet/', views.Ekta_export_to_csv1, name="eet"),
     
     
 ]

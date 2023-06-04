@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-4 bg-white border-end border-dark" >
+        <div class="col-sm-3  bg-white border-end border-dark" >
             {% if messages %}
                 {% for message in messages %}
                     <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3 alert-dismissible fade show" {% endif %} role="alert">{{message}}
@@ -31,21 +31,23 @@
                 <input type="submit" class='btn btn-outline-info' value="submit">
             </form>
         </div>
-        <div class="col-sm-8">
+        <div class="col-sm-8 ">
             <div class="row mt-4">
                 {% for img1 in img %}
-                <div class="col-sm-4  m-3 p-2 shadow">
-                   <img src="{{img1.Photo.url}}" alt="birthday_photo" class="mb-2" srcset="" height="350px"> 
+                <div class="col-sm-4 p-2 mxy-auto shadow ">
+                   <img src="{{img1.Photo.url}}" alt="birthday_photo" class="mb-2 p-2" srcset="" height="200px"> 
                    {% if request.user.is_superuser %}
-                        <form action="{% url 'ebp' img1.id %}" method="GET" class="d-inline" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <input type="submit" value="एडीट" class="btn btn-outline-warning">
-                        </form>
-                        <form action="{% url 'dbp' img1.id %}" method="POST" class="d-inline">
-                            {% csrf_token %}
-                            <input type="submit" value="डीलीट" class="btn btn-outline-danger">
-                        </form>
-                        {% endif %}
+                        <div class="p-1">
+                            <form action="{% url 'ebp' img1.id %}" method="GET" class="d-inline" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <input type="submit" value="एडीट" class="btn btn-outline-warning">
+                            </form>
+                            <form action="{% url 'dbp' img1.id %}" method="POST" class="d-inline">
+                                {% csrf_token %}
+                                <input type="submit" value="डीलीट" class="btn btn-outline-danger">
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

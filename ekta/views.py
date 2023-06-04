@@ -369,6 +369,7 @@ def Executive_Board(request):
     context={'EB':'active'}
     return render(request,'ekta1/executive_board.html',context)
 
+#add annual meetings
 def Add_Annual_Meeting_page(request):
     if request.user.is_authenticated:
         if request.method=='POST':
@@ -394,8 +395,78 @@ def Show_Annual_Meeting_page(request):
         return render(request, 'ekta1/show_annual_meetings.html',{'SAM':'active','form':fm})
     else:
         return HttpResponseRedirect("/login/")
-        
 
+#Edit annual Meeting
+def Edit_Annual_Meeting_page(request,id):
+    if request.method == 'POST':
+        pi = Annual_Meeting.objects.get(pk=id)
+        fm = Annual_Meeting_form(request.POST, request.FILES, instance=pi)
+        if fm.is_valid():
+            fm.save()
+            messages.success(request,'Update annual Meeting successfully!!!')
+    else:
+        pi = Annual_Meeting.objects.get(pk=id)
+        fm = Annual_Meeting_form(instance=pi)
+    return render(request,'ekta1/Edit_Annual_Meeting.html',{'form':fm})
+
+
+# delete annual meetings
+def Delete_Annual_Meeting_page(request,id):
+    if request.method == 'POST':
+        pi = Annual_Meeting.objects.get(pk=id)
+        pi.delete()
+    return HttpResponseRedirect('/sam/')
+
+
+#add annual meetings
+def Add_Annual_Function_page(request):
+    if request.user.is_authenticated:
+        if request.method=='POST':
+            fm = Annual_Function_form(request.POST,request.FILES)
+            if fm.is_valid():
+                im = fm.cleaned_data['Image']
+                dd = fm.cleaned_data['Date']
+                di = fm.cleaned_data['Discription']
+                data = Annual_Function(Image=im, Date=dd, Discription=di)
+                data.save()
+                messages.success(request,'Function Detail Add Successfully!!!')
+        else:
+            fm = Annual_Meeting_form()
+        return render(request, 'ekta1/add_annual_functions.html',{'form':fm})
+    else:
+        return HttpResponseRedirect("/login/")
+
+
+#Edit annual Function
+def Edit_Annual_Function_page(request,id):
+    if request.method == 'POST':
+        pi = Annual_Function.objects.get(pk=id)
+        fm = Annual_Function_form(request.POST, request.FILES, instance=pi)
+        if fm.is_valid():
+            fm.save()
+            messages.success(request,'Update annual function successfully!!!')
+    else:
+        pi = Annual_Function.objects.get(pk=id)
+        fm = Annual_Function_form(instance=pi)
+    return render(request,'ekta1/Edit_Annual_Function.html',{'form':fm})
+
+# delete annual function
+def Delete_Annual_Function_page(request,id):
+    if request.method == 'POST':
+        pi = Annual_Function.objects.get(pk=id)
+        pi.delete()
+    return HttpResponseRedirect('/saf/')
+
+#Show annual Function
+def Show_Annual_Function_page(request):
+    if request.user.is_authenticated:
+        fm= Annual_Function.objects.all()
+        return render(request, 'ekta1/show_annual_functions.html',{'SAF':'active','form':fm})
+    else:
+        return HttpResponseRedirect("/login/")
+
+
+# work in progress
 #download ekta Member subscription 
 def Ekta_export_to_csv(request):
     ems = Ekta_Member_Subscription.objects.all()
