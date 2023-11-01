@@ -5,16 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Ekta cricket club</title>
+    <!-- Custom CSS -->
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock css %}
+    <!-- Fontawesome CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}"> -->
+     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+     <!-- favicon LOGO icon -->
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Datatables Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/datatablebootstrap.css' %}"> 
+    <title>Ekta cricket club</title>   
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid  wrapper">
     <!-- Heading -->
     {% block header1 %}
     {% endblock header1 %}
@@ -34,16 +40,30 @@
   </div>
 
   <!-- Page footer -->
-  <div class="container-fluid card-footer text-center text-white bg-dark p-2 ">
-    ©Powered by Ekta Cricket Club 2022
-  </div>  
+  <footer class="bg-dark text-center text-lg-start" id="footer" style="color: #fff;">
+    <div class="text-center p-3 " style="background-color: rgba(0, 0, 0,0.2);">&copy; Powered by  
+        <a class="text-light" style=" text-decoration: none;">
+            <span style="color: greenyellow;">Ekta Cricket Club</span>
+            {% now "Y" %}
+        </a>
+    </div>
+  </footer>
 
 
+    
+    <!-- Bootstrap JS -->
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap_growl.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
-  
-   
+    <!-- FONTAWESOME JS -->
+    <!-- <script src="{% static 'js/fontawesome.js' %}"></script> -->
+    <!-- DATATABLES BOOTSTRAP JS  -->
+    <script src="{% static 'js/datatables.js' %}"></script>
+    <script src="{% static 'js/pdfmakevfs.js' %}"></script>
+    <!-- <script src="{% static 'js/pdfmake.js' %}"></script> -->
+    <script src="{% static 'js/datatablesBootstrap.js' %}"></script>
+    <!-- DATATABLE Script -->
+    <script src="{% static 'js/DatatableScript.js' %}" ></script>
 </body>
 </html>
