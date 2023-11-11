@@ -28,6 +28,7 @@ footer{
 ==================== */
 /* Pagination */
 /* /Ekata Page pagination */
+<<<<<<< HEAD
 /* #example2_paginate{
     margin-top: -40px !important;
 } */
@@ -44,3 +45,21 @@ footer{
     float: right !important;
     margin-top: 10px !important;
 } */
+=======
+#example2_paginate{
+    margin-top: -40px !important;
+}
+
+
+/* Balvikas Pagination */
+#example4_paginate{
+    margin-top: -40px !important;
+}
+
+
+/* Show Entries */
+.dataTables_length{
+    float: right !important;
+    margin-top: 10px !important;
+}
+>>>>>>> 9a40693d402e60781962f1916465c93d21656848
