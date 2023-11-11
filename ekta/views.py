@@ -1,8 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout,update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import *
-from.models import *
+from ekta.forms import Signupform,MyPasswordChangeForm,DateTimeInput,EktaMemberSubscriptionForm,MemberForm,ContactForm,CricketMemberForm,Birthday_Photo_form,Social_photo_form,Cultural_photo_form,Educational_photo_form,Annual_Meeting_form,Annual_Function_form
+from ekta.models import EktaMember,Ekta_Member_Subscription,Contact,Cricket_Member,Birthday_Photos,Social_photo_upload,Cultural_photo_upload,Educational_photo_upload,Annual_Meeting,Annual_Function
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
