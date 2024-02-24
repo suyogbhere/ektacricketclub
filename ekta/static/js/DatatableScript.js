@@ -5,227 +5,64 @@ $("#example1").DataTable({
     lengthChange:false,
     autoWidth:true,
     searching:false,
-    bInfo: true,
+    bInfo: false,
     bSort:true,
-
-    // BUTTONS
-<<<<<<< HEAD
-// dom: 'lBfrtip',
-// buttons:[
-//     {   //COPY
-//         extend: 'copy',
-//         text: 'copy',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Copy",
-
-//         // Choose the column you with to copy
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //EXCEL
-//         extend: 'excel',
-//         text: 'excel',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Excel",
-
-//         // Choose the column you with to excel
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //PRINT
-//         extend: 'print',
-//         text: 'print',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Print",
-
-//         // Choose the column you with to print
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         },
-//         // Font Size (when export to print)
-//         customize: function( win ) {
-//             $(win.document.body).css('font-size', '10pt')
-//             $(win.document.body).find('table')
-//             .addClass('compact')
-//             .css('font-size', 'inherit');
-//         }
-//     },
-// ]
-=======
-dom: 'lBfrtip',
-buttons:[
-    {   //COPY
-        extend: 'copy',
-        text: 'copy',
-        className: 'btn btn-secondary',
-        titleAttr: "Copy",
-
-        // Choose the column you with to copy
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //EXCEL
-        extend: 'excel',
-        text: 'excel',
-        className: 'btn btn-secondary',
-        titleAttr: "Excel",
-
-        // Choose the column you with to excel
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //PRINT
-        extend: 'print',
-        text: 'print',
-        className: 'btn btn-secondary',
-        titleAttr: "Print",
-
-        // Choose the column you with to print
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        },
-        // Font Size (when export to print)
-        customize: function( win ) {
-            $(win.document.body).css('font-size', '10pt')
-            $(win.document.body).find('table')
-            .addClass('compact')
-            .css('font-size', 'inherit');
-        }
-    },
-]
->>>>>>> 9a40693d402e60781962f1916465c93d21656848
 });
 
 $("#example2").DataTable({ 
     //Datatables Configurations
     paging: true,
-    pageLength: 2,
+    pageLength: 10,
     lengthChange:true,
     autoWidth:true,
     searching:false,
-    bInfo: true,
+    bInfo: false,
     bSort:true,
 
 // BUTTONS
-<<<<<<< HEAD
-// dom: 'lBfrtip',
-// buttons:[
-//     {   //COPY
-//         extend: 'copy',
-//         text: 'copy',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Copy",
-
-//         // Choose the column you with to copy
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //EXCEL
-//         extend: 'excel',
-//         text: 'excel',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Excel",
-
-//         // Choose the column you with to excel
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //PRINT
-//         extend: 'print',
-//         text: 'print',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Print",
-
-//         // Choose the column you with to print
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         },
-//         // Font Size (when export to print)
-//         customize: function( win ) {
-//             $(win.document.body).css('font-size', '10pt')
-//             $(win.document.body).find('table')
-//             .addClass('compact')
-//             .css('font-size', 'inherit');
-//         }
-//     },   
-//     // {   //PDF
-//     //     extend: 'pdf',
-//     //     text: 'pdf',                            
-//     //     className: 'btn btn-secondary',
-//     //     titleAttr: "PDF",   
-
-//     //     // // Choose the column you with to pdf
-//     //     exportOptions:{
-//     //         columns:[0,1,2,3,4,5]
-//     //     },
-
-//     //     // center the table
-//     //     tableHearder:{
-//     //         alignment:'center'
-//     //     },
-
-//     //     // Font size and optimization
-//     //     customize: function(doc) {
-//     //         doc.styles.tableHearder.alignment = 'center'; //Header position
-//     //         doc.styles.tableBodyOdd.alignment = 'center'; //Body position1  (gray color)
-//     //         doc.styles.tableBodyEven.alignment = 'center'; //Header position2 (white color)
-//     //         doc.styles.tableHearder.fontSize = 7;          //header font-size
-//     //         doc.defaultStyle.fontSize = 6;                // body font-size
-//     //         // To get 100% width of the table \
-//     //         doc.content[1].table.widths = Array(doc.content[1].table.body[1]+length+ 1).join('*').split('');
-//     //     }
-//     // },   
-// ]
-=======
-dom: 'lBfrtip',
+dom: 'lBfrtip',   //show buttons
 buttons:[
-    {   //COPY
-        extend: 'copy',
-        text: 'copy',
-        className: 'btn btn-secondary',
-        titleAttr: "Copy",
-
-        // Choose the column you with to copy
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //EXCEL
-        extend: 'excel',
-        text: 'excel',
-        className: 'btn btn-secondary',
-        titleAttr: "Excel",
-
-        // Choose the column you with to excel
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //PRINT
-        extend: 'print',
-        text: 'print',
-        className: 'btn btn-secondary',
-        titleAttr: "Print",
-
-        // Choose the column you with to print
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
+        {   //COPY
+            extend: 'copy',
+            text: 'copy',
+            className: 'btn btn-secondary',
+            titleAttr: "Copy",
+    
+            // Choose the column you with to copy
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            }
         },
-        // Font Size (when export to print)
-        customize: function( win ) {
-            $(win.document.body).css('font-size', '10pt')
-            $(win.document.body).find('table')
-            .addClass('compact')
-            .css('font-size', 'inherit');
-        }
-    },   
-    // {   //PDF
+        {   //EXCEL
+            extend: 'excel',
+            text: 'excel',
+            className: 'btn btn-secondary',
+            titleAttr: "Excel",
+    
+            // Choose the column you with to excel
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            }
+        },
+        {   //PRINT
+            extend: 'print',
+            text: 'print',
+            className: 'btn btn-secondary',
+            titleAttr: "Print",
+    
+            // Choose the column you with to print
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            },
+            // Font Size (when export to print)
+            customize: function( win ) {
+                $(win.document.body).css('font-size', '10pt')
+                $(win.document.body).find('table')
+                .addClass('compact')
+                .css('font-size', 'inherit');
+            }
+        },
+        // {   //PDF
     //     extend: 'pdf',
     //     text: 'pdf',                            
     //     className: 'btn btn-secondary',
@@ -233,7 +70,7 @@ buttons:[
 
     //     // // Choose the column you with to pdf
     //     exportOptions:{
-    //         columns:[0,1,2,3,4,5]
+    //         columns:[0,1,2,3,4]
     //     },
 
     //     // center the table
@@ -251,9 +88,8 @@ buttons:[
     //         // To get 100% width of the table \
     //         doc.content[1].table.widths = Array(doc.content[1].table.body[1]+length+ 1).join('*').split('');
     //     }
-    // },   
-]
->>>>>>> 9a40693d402e60781962f1916465c93d21656848
+    // },      
+    ]
 });
 
 $("#example3").DataTable({ 
@@ -263,99 +99,8 @@ $("#example3").DataTable({
     lengthChange:false,
     autoWidth:true,
     searching:false,
-    bInfo: true,
+    bInfo: false,
     bSort:true,
-
-    // BUTTONS
-<<<<<<< HEAD
-    // dom: 'lBfrtip',
-    // buttons:[
-    //     {   //COPY
-    //         extend: 'copy',
-    //         text: 'copy',
-    //         className: 'btn btn-secondary',
-    //         titleAttr: "Copy",
-    
-    //         // Choose the column you with to copy
-    //         exportOptions:{
-    //             columns:[0,1,2,3,4,5]
-    //         }
-    //     },
-    //     {   //EXCEL
-    //         extend: 'excel',
-    //         text: 'excel',
-    //         className: 'btn btn-secondary',
-    //         titleAttr: "Excel",
-    
-    //         // Choose the column you with to excel
-    //         exportOptions:{
-    //             columns:[0,1,2,3,4,5]
-    //         }
-    //     },
-    //     {   //PRINT
-    //         extend: 'print',
-    //         text: 'print',
-    //         className: 'btn btn-secondary',
-    //         titleAttr: "Print",
-    
-    //         // Choose the column you with to print
-    //         exportOptions:{
-    //             columns:[0,1,2,3,4,5]
-    //         },
-    //         // Font Size (when export to print)
-    //         customize: function( win ) {
-    //             $(win.document.body).css('font-size', '10pt')
-    //             $(win.document.body).find('table')
-    //             .addClass('compact')
-    //             .css('font-size', 'inherit');
-    //         }
-    //     },
-    // ]
-=======
-    dom: 'lBfrtip',
-    buttons:[
-        {   //COPY
-            extend: 'copy',
-            text: 'copy',
-            className: 'btn btn-secondary',
-            titleAttr: "Copy",
-    
-            // Choose the column you with to copy
-            exportOptions:{
-                columns:[0,1,2,3,4,5]
-            }
-        },
-        {   //EXCEL
-            extend: 'excel',
-            text: 'excel',
-            className: 'btn btn-secondary',
-            titleAttr: "Excel",
-    
-            // Choose the column you with to excel
-            exportOptions:{
-                columns:[0,1,2,3,4,5]
-            }
-        },
-        {   //PRINT
-            extend: 'print',
-            text: 'print',
-            className: 'btn btn-secondary',
-            titleAttr: "Print",
-    
-            // Choose the column you with to print
-            exportOptions:{
-                columns:[0,1,2,3,4,5]
-            },
-            // Font Size (when export to print)
-            customize: function( win ) {
-                $(win.document.body).css('font-size', '10pt')
-                $(win.document.body).find('table')
-                .addClass('compact')
-                .css('font-size', 'inherit');
-            }
-        },
-    ]
->>>>>>> 9a40693d402e60781962f1916465c93d21656848
 
 });
 
@@ -366,103 +111,75 @@ $("#example4").DataTable({
     lengthChange:true,
     autoWidth:true,
     searching:false,
-    bInfo: true,
+    bInfo: false,
     bSort:true,
 
-<<<<<<< HEAD
-    // dom: 'lBfrtip',    //show page entry style
-
-        // BUTTONS
-// dom: 'lBfrtip',
-// buttons:[
-//     {   //COPY
-//         extend: 'copy',
-//         text: 'copy',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Copy",
-
-//         // Choose the column you with to copy
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //EXCEL
-//         extend: 'excel',
-//         text: 'excel',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Excel",
-
-//         // Choose the column you with to excel
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         }
-//     },
-//     {   //PRINT
-//         extend: 'print',
-//         text: 'print',
-//         className: 'btn btn-secondary',
-//         titleAttr: "Print",
-
-//         // Choose the column you with to print
-//         exportOptions:{
-//             columns:[0,1,2,3,4,5]
-//         },
-//         // Font Size (when export to print)
-//         customize: function( win ) {
-//             $(win.document.body).css('font-size', '10pt')
-//             $(win.document.body).find('table')
-//             .addClass('compact')
-//             .css('font-size', 'inherit');
-//         }
-//     },
-// ]
-=======
-    dom: 'lBfrtip',    //show page entry style
-
-        // BUTTONS
-dom: 'lBfrtip',
-buttons:[
-    {   //COPY
-        extend: 'copy',
-        text: 'copy',
-        className: 'btn btn-secondary',
-        titleAttr: "Copy",
-
-        // Choose the column you with to copy
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //EXCEL
-        extend: 'excel',
-        text: 'excel',
-        className: 'btn btn-secondary',
-        titleAttr: "Excel",
-
-        // Choose the column you with to excel
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
-        }
-    },
-    {   //PRINT
-        extend: 'print',
-        text: 'print',
-        className: 'btn btn-secondary',
-        titleAttr: "Print",
-
-        // Choose the column you with to print
-        exportOptions:{
-            columns:[0,1,2,3,4,5]
+    dom: 'lBfrtip',    //show buttons
+    buttons:[
+        {   //COPY
+            extend: 'copy',
+            text: 'copy',
+            className: 'btn btn-secondary',
+            titleAttr: "Copy",
+    
+            // Choose the column you with to copy
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            }
         },
-        // Font Size (when export to print)
-        customize: function( win ) {
-            $(win.document.body).css('font-size', '10pt')
-            $(win.document.body).find('table')
-            .addClass('compact')
-            .css('font-size', 'inherit');
-        }
-    },
-]
->>>>>>> 9a40693d402e60781962f1916465c93d21656848
+        {   //EXCEL
+            extend: 'excel',
+            text: 'excel',
+            className: 'btn btn-secondary',
+            titleAttr: "Excel",
+    
+            // Choose the column you with to excel
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            }
+        },
+        {   //PRINT
+            extend: 'print',
+            text: 'print',
+            className: 'btn btn-secondary',
+            titleAttr: "Print",
+    
+            // Choose the column you with to print
+            exportOptions:{
+                columns:[0,1,2,3,4]
+            },
+            // Font Size (when export to print)
+            customize: function( win ) {
+                $(win.document.body).css('font-size', '10pt')
+                $(win.document.body).find('table')
+                .addClass('compact')
+                .css('font-size', 'inherit');
+            }
+        },      
+    ]
 });
 
+
+// table to excel for ekata member
+// document.getElementById('downloadingexcelone').addEventListener('click', function(){
+//     var table2excel = new Table2Excel();
+//     table2excel.export(document.querySelectorAll("#example1"));
+// });
+
+// table to excel for ekata membership
+// document.getElementById('downloadingexceltwo').addEventListener('click', function(){
+//     var table2excel = new Table2Excel();
+//     table2excel.export(document.querySelectorAll("#example2"));
+// });
+
+// table to excel for Bal vikas Member
+// document.getElementById('downloadingexcelthree').addEventListener('click', function(){
+//     var table2excel = new Table2Excel();
+//     table2excel.export(document.querySelectorAll("#example3"));
+// });
+
+// table to excel for Bal vikas membership
+// document.getElementById('downloadingexcelfour').addEventListener('click', function(){
+//     var table2excel = new Table2Excel();
+//     table2excel.export(document.querySelectorAll("#example4"));
+// });

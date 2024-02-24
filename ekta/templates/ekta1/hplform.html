@@ -1,0 +1,67 @@
+{% extends 'ekta1/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid hpl mt-2" style="background-image: url({% static 'images/cricket_tem1.jpg' %});">
+    <div class="hpl_header">
+        <h6 class="col-sm-4 mx-5">!!श्री जुगा-जुकादेवी प्रसन्न !!</h6> <h6 class="col-sm-4">!! श्री गजानन प्रसन्न !!</h6> <h6 class="col-sm-3">!! श्री ब्राह्मणदेव प्रसन्न !!</h6>
+    </div>
+    <div class="bg-danger row">
+        <h4 class="blink col-sm-2 my-auto ms-3"> स्पर्धा दि. 13 मे 2024</h4>
+        <h1 class="text-center text-white fw-bold col-sm-8  hpl_h1 py-2">हळदीची खांदवाडी प्रीमियर लीग(HPL) (पर्व २ रे)</h1>
+    </div>
+    <div>
+        <h5 class="text-center fw-bold">भव्य ओव्हर-आर्म क्रिकेट स्पर्धा २०२४</h5>
+        <h5 class="text-center bg-success col-md-5 mx-auto rounded">४ संघ / ४ संघ मालक / वाडीतील ४८ खेळाडू</h5>
+    </div>
+    <div class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <p {% if message %} class="alert alert-{{message.tags}} mb-5 alert-dismissible fade show" {% endif %} role="alert">{{message}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
+            {% endfor %}
+        {% endif %}
+        {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+                <p class="alert alert-danger my-3 alert-dismissible fade show" role="alert">{{error}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close">
+                    </button>
+                </p>
+            {% endfor %}
+        {% endif %}
+    
+ 
+        <form action="" method="POST" novalidate class=" p-5 fw-bold col-md-6"  enctype="multipart/form-data">
+            {%  csrf_token %}
+            {% for fm in form %}
+                <div class="form-group">
+                    {{fm.label_tag}} {{fm}} <small class="text-warning">{{fm.errors|striptags}}</small> 
+                </div>
+            {% endfor %}
+            <div class="mt-3">
+                <input type="submit"  value="नोंद करा" class="btn btn-primary" disabled>
+                <a href="{% url 'hplrf' %}"  class="btn btn-warning">नोंदणी फार्म बघा</a>
+            </div>
+        </form>
+
+        <div class="fw-bold">
+            <h6 class="fw-bold">स्पर्धेसाठी लागू असलेले नियम व अटी : </h6>
+            <p>1) ही स्पर्धा 4 संघांमध्ये खेळवण्यात येईल. </p>
+            <p>2) स्पर्धेची खेळाडू प्रवेश रक्कम ही 300 असेल. या मध्ये प्रत्येक खेळाडू ला एक टि शर्ट दिलं जाईल, जमल्यास दुपारी नाष्टा किंवा जेवणाची सुविधा केली जाईल. </p>
+            <p>3) दिलेल्या तारखे पर्यंत खेळाडू प्रवेश रक्कम जमा झाली नसल्यास त्या खेळाडू चा फॉर्म संघ निवडणुकीत आकारला जाणार नाही. </p>
+            <p>4) प्रत्येक खेळाडूला कमिटी चे निर्णय मान्य असणे आवश्यक आहे. </p>
+            <p>5) कोणत्याही खेळाडू ने खेळताना गैरवतवणूक केलेली आढळल्यास त्या खेळाडू ला स्पर्धेबाहेर करण्यात येईल व पुढील एक वर्ष ही लीग स्पर्धा खेळता येणार नाही. </p>
+            <p>6)एका संघा मध्ये 13 खेळाडू असतील.</p>
+            <p>7) ड्रा पद्धतीने  संघ निवडले जातील</p>
+            <p>8)कोणत्याही संघ मालकाला चॉईस खेळाडू देण्यात येणार नाही.</p>
+            <p>9) कमिटीचे वरील सर्व नियम मला मान्य असून मी या स्पर्धेचा एक भाग बनत आहे, तरी माझ्याकडून काही गैरवतवणूक झाल्यास मला कमिटी चा निर्णय मान्य असेल.</p>
+            <p class="text-danger">खेळाडू प्रवेश रक्कम तारीख :  २५ फेब्रुवारी  २०२४</p>
+            
+        </div>
+
+    </div>
+</div>
+
+{% endblock content %}

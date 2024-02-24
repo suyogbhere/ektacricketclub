@@ -1,8 +1,8 @@
 from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 from django.contrib.auth import authenticate,login,logout,update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm
-from ekta.forms import Signupform,MyPasswordChangeForm,DateTimeInput,EktaMemberSubscriptionForm,MemberForm,ContactForm,CricketMemberForm,Birthday_Photo_form,Social_photo_form,Cultural_photo_form,Educational_photo_form,Annual_Meeting_form,Annual_Function_form
-from ekta.models import EktaMember,Ekta_Member_Subscription,Contact,Cricket_Member,Birthday_Photos,Social_photo_upload,Cultural_photo_upload,Educational_photo_upload,Annual_Meeting,Annual_Function
+from ekta.forms import Signupform,MyPasswordChangeForm,DateTimeInput,EktaMemberSubscriptionForm,MemberForm,ContactForm,CricketMemberForm,Birthday_Photo_form,Social_photo_form,Cultural_photo_form,Educational_photo_form,Annual_Meeting_form,Annual_Function_form,Hpl_registration_form
+from ekta.models import EktaMember,Ekta_Member_Subscription,Contact,Cricket_Member,Birthday_Photos,Social_photo_upload,Cultural_photo_upload,Educational_photo_upload,Annual_Meeting,Annual_Function,Hpl_registration
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
@@ -497,3 +497,28 @@ def Ekta_export_to_csv1(request):
         writer.writerow([myfilters.id, myfilters.Name, myfilters.Subscription, myfilters.Year])
     return response
 
+
+
+#hpl registration
+def hpl_registration(request):
+    if request.method == 'POST':
+        fm = Hpl_registration_form(request.POST)
+        if fm.is_valid():
+            fn = fm.cleaned_data['Full_Name']
+            DB = fm.cleaned_data['DOB']
+            co = fm.cleaned_data['contact']
+            ps = fm.cleaned_data['player_skill']
+            ts = fm.cleaned_data['t_shirt_Size']
+            data = Hpl_registration(Full_Name=fn, DOB=DB, contact=co, player_skill=ps, t_shirt_Size=ts)
+            data.save()
+            messages.success(request,'Form submited successfully !!!')
+            return HttpResponseRedirect("/hpl/")
+    else:
+        fm = Hpl_registration_form()
+    return render(request,'ekta1/hplform.html', {'form': fm})
+
+
+#Show HPL form 
+def Show_Hpl_registrationform(request):
+        fm= Hpl_registration.objects.all()
+        return render(request, 'ekta1/show_hpl_form.html',{'form':fm})

@@ -45,6 +45,8 @@ urlpatterns = [
     path('saf/', views.Show_Annual_Function_page, name='saf'),
     path('eetc/', views.Ekta_export_to_csv, name="eetc"),
     path('eet/', views.Ekta_export_to_csv1, name="eet"),
-    
+    path('hpl/', views.hpl_registration, name="hpl"),
+    path('hplrf/', views.Show_Hpl_registrationform, name="hplrf"),
+  
     
 ]

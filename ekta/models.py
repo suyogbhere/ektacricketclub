@@ -73,3 +73,25 @@ class Annual_Function(models.Model):
 #     Name = models.ImageField()
 #     Position = models.ForeignKey(Position, on_delete=models.CASCADE)
 
+
+Player_skill=[
+        ('फलंदाज','फलंदाज'),
+        ('गोलंदाज','गोलंदाज'),
+        ('अष्टपैलू','अष्टपैलू'),
+        ('यष्टिरक्षक','यष्टिरक्षक')
+]
+
+Money_Status=[
+        ('PAID','PAID'),
+        ('UNPAID','UNPAID')
+]
+
+
+class Hpl_registration(models.Model):
+    Full_Name = models.CharField(max_length=200)
+    DOB = models.DateField(max_length=100)
+    contact = models.CharField(max_length=50, blank=True)
+    player_skill = models.CharField(choices=Player_skill, max_length=100)
+    t_shirt_Size = models.IntegerField()
+    money_status = models.CharField(choices=Money_Status, max_length=100, default='UNPAID')
+

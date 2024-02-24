@@ -3,6 +3,7 @@ h2{
 }
 
 
+
 /* ====================
 #FOOTER
 ==================== */
@@ -22,13 +23,11 @@ footer{
 }
 
 
-
 /* ====================
 #DATATABLE PAGINATION
 ==================== */
 /* Pagination */
 /* /Ekata Page pagination */
-<<<<<<< HEAD
 /* #example2_paginate{
     margin-top: -40px !important;
 } */
@@ -41,25 +40,48 @@ footer{
 
 
 /* Show Entries */
-/* .dataTables_length{
-    float: right !important;
-    margin-top: 10px !important;
-} */
-=======
-#example2_paginate{
-    margin-top: -40px !important;
-}
-
-
-/* Balvikas Pagination */
-#example4_paginate{
-    margin-top: -40px !important;
-}
-
-
-/* Show Entries */
 .dataTables_length{
     float: right !important;
     margin-top: 10px !important;
+};
+
+
+
+
+/*  HPL form style  */
+.hpl{
+    background-repeat: no-repeat;
+    background-size: 1700px;
+};
+
+.hpl_header > h6{
+    display: inline-block;
+};
+
+.blink{
+    animation: blinker 1.5s linear infinite;
+    color: yellow;
+    font-family: 'Times New Roman', Times, serif;
+};
+
+@keyframes blinker {       
+    50%{
+        opacity:0;
+    }
 }
->>>>>>> 9a40693d402e60781962f1916465c93d21656848
+
+.hpl_h1{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+/* ============== HPL Money Status======================== */
+td.color_PAID{
+    background-color: green !important;
+    font-weight: bold;
+};
+
+td.color_UNPAID{
+    background-color: red !important;
+    font-weight: bold;
+};

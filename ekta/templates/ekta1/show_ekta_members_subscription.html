@@ -20,20 +20,25 @@
                 <a href="{% url 'aem' %}" class='btn btn-outline-success py-auto my-auto mx-auto col-sm-3 me-3 mb-1'>नोंद करा</a>
                 {% endif %}
             </div>
-            <table class="table table-striped table-hover" id="example1">
-                <thead>
-                    <tr>
-                        <th class="text-center">अ. क्र</th>
-                        <th class="text-center">सभासदाचे नाव</th>
-                    </tr>
-                </thead>      
-                {% for fm2 in form2 %}
-                        <tr class="text-center">
-                            <td>{{forloop.counter}}</td>        <!--{{fm2.id}}--> 
-                            <td>{{fm2.Name}}</td>
+            <div>
+
+            </div>
+            <div class="table-responsive-sm">
+                <table class="table table-striped table-hover" id="example1">
+                    <thead>
+                        <tr>
+                            <th class="text-center">अ. क्र</th>
+                            <th class="text-center">सभासदाचे नाव</th>
                         </tr>
-                {% endfor %}
-            </table>
+                    </thead>      
+                    {% for fm2 in form2 %}
+                            <tr class="text-center">
+                                <td>{{forloop.counter}}</td>        <!--{{fm2.id}}--> 
+                                <td>{{fm2.Name}}</td>
+                            </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
         <div class="col-sm-8">
             <div class="row">
@@ -55,41 +60,43 @@
                                 </div>
                         </form>
             <!-- </div> -->
-            <table class="table table-striped table-hover" id="example2">
-                <thead>
-                    <tr>
-                        <th class="text-center">अ. क्र</th>
-                        <th class="text-center">सभासदाचे नाव</th>
-                        <th class="text-center">वर्गणी  (₹)</th>
-                        <th class="text-center">तारीख</th>
-                        <th class="text-center">वर्ष</th>
-                        {% if request.user.is_superuser %}
-                        <th class="text-center">कृती</th>
-                        {% endif %}
-                    </tr>
-                </thead>
-            {% for fm1 in form1 %}                <!-- Backend Data  -->
-                        <tr class="text-center">
-                            <td>{{forloop.counter}}</td>         <!-- {{fm1.id}} -->
-                            <td>{{fm1.Name}}</td>
-                            <td>{{fm1.Subscription}} ₹</td>
-                            <td>{{fm1.Date}}</td>
-                            <td>{{fm1.Year}}</td>
+            <div class="table-responsive-sm">
+                <table class="table table-striped table-hover" id="example2">
+                    <thead>
+                        <tr>
+                            <th class="text-center">अ. क्र</th>
+                            <th class="text-center">सभासदाचे नाव</th>
+                            <th class="text-center">वर्गणी  (₹)</th>
+                            <th class="text-center">तारीख</th>
+                            <th class="text-center">वर्ष</th>
                             {% if request.user.is_superuser %}
-                            <td>
-                                <form action="{% url 'eems' fm1.id %}" method="" class="d-inline">
-                                    {% csrf_token %}
-                                    <input type="submit" value="एडीट" class="btn btn-outline-warning">
-                                </form>
-                                <form action="{% url 'dems' fm1.id %}" method="post" class="d-inline">
-                                    {% csrf_token %}
-                                    <input type="submit" value="डीलीट" class="btn btn-outline-danger">
-                                </form>
-                            </td>
+                            <th class="text-center">कृती</th>
                             {% endif %}
                         </tr>
-                {% endfor %}
-        </table>
+                    </thead>
+                {% for fm1 in form1 %}                <!-- Backend Data  -->
+                            <tr class="text-center">
+                                <td>{{forloop.counter}}</td>         <!-- {{fm1.id}} -->
+                                <td>{{fm1.Name}}</td>
+                                <td>{{fm1.Subscription}} ₹</td>
+                                <td>{{fm1.Date}}</td>
+                                <td>{{fm1.Year}}</td>
+                                {% if request.user.is_superuser %}
+                                <td>
+                                    <form action="{% url 'eems' fm1.id %}" method="" class="d-inline">
+                                        {% csrf_token %}
+                                        <input type="submit" value="एडीट" class="btn btn-outline-warning">
+                                    </form>
+                                    <form action="{% url 'dems' fm1.id %}" method="post" class="d-inline">
+                                        {% csrf_token %}
+                                        <input type="submit" value="डीलीट" class="btn btn-outline-danger">
+                                    </form>
+                                </td>
+                                {% endif %}
+                            </tr>
+                    {% endfor %}
+            </table>
+            </div>
         </div>
     </div>
 </div>

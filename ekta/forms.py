@@ -179,3 +179,37 @@ class Annual_Function_form(forms.ModelForm):
 #         labels={
 #             'Discription':'वर्णन', 'Photo':'फोटो'
 #         }
+
+
+
+Player_skill=[
+    ('फलंदाज','फलंदाज'),
+    ('गोलंदाज','गोलंदाज'),
+    ('अष्टपैलू','अष्टपैलू'),
+    ('यष्टिरक्षक','यष्टिरक्षक')
+]
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+class Hpl_registration_form(forms.ModelForm):
+    class Meta:
+        model = Hpl_registration
+        fields = ['Full_Name','DOB','contact','t_shirt_Size', 'player_skill']
+        widgets = { 
+            'Full_Name': forms.TextInput(attrs={'class':'form-control'}),
+            'DOB': DateInput(attrs={'class':'form-control'}),
+            'contact' : forms.TextInput(attrs={'class':'form-control'}),
+            't_shirt_Size' : forms.NumberInput(attrs={'class':'form-control'}),
+            'player_skill' : forms.Select(attrs={'class':'form-control'})
+        }
+        labels={
+            'Full_Name':'संपूर्ण नाव',
+            'DOB': 'जन्मतारीख',
+            'contact': 'संपर्क',
+            't_shirt_Size': 'टि शर्ट साईज',
+            'player_skill': 'खेळाडूचे कौशल्य'
+        }
+
+   
