@@ -49,4 +49,4 @@ class Annual_FunctionAdmin(admin.ModelAdmin):
        
 @admin.register(Hpl_registration)
 class Hpl_registrationAdmin(admin.ModelAdmin):
-    list_display = ['id','Full_Name','DOB','contact','player_skill','t_shirt_Size']
+    list_display = ['id','Full_Name','DOB','contact','player_skill','t_shirt_Size','money_status']

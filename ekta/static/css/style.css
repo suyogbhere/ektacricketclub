@@ -52,17 +52,17 @@ footer{
 .hpl{
     background-repeat: no-repeat;
     background-size: 1700px;
-};
+}
 
-.hpl_header > h6{
+/* .hpl_header > h6{
     display: inline-block;
-};
+} */
 
 .blink{
     animation: blinker 1.5s linear infinite;
     color: yellow;
     font-family: 'Times New Roman', Times, serif;
-};
+}
 
 @keyframes blinker {       
     50%{
