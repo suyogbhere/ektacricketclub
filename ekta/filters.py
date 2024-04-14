@@ -2,9 +2,7 @@ import django_filters
 from .models import *
 from django import forms
 
-YEAR_CHOICES = []
-for y in range(2015, (datetime.datetime.now().year+1)):
-    YEAR_CHOICES.append((y,y))
+YEAR_CHOICES = [((f"{y}-{y+1}"),f"{y}-{y+1}") for y in range(2015,datetime.datetime.now().year+1)]
 
 #Model Name filter
 class Ekta_Member_Subscription_Filter(django_filters.FilterSet):
